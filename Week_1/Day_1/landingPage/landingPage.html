@@ -1,0 +1,86 @@
+<html>
+<head>
+    <link rel="stylesheet" href="landingPage.css">
+    <script src="landingPage.js"></script>
+</head>
+<header id="title">
+    <h1>Leonardo Faife</h1>
+</header>
+
+<body>
+    <div class="wrapper">
+        <img src="profilePic.jpg" alt="picture of me">
+        <div class="textBox">
+            <p> I'm Leonardo Faife, a Computer Science major at the University of Central Florida, currently residing in Orlando. My passions revolve
+                around technology, sports, outdoor adventures, and creative expressions. In the realm of technology, I'm
+                eager to learn and grow in web development, pushing the boundaries of creativity by building dynamic
+                websites.
+            </p>
+            <div class="textBox2">
+                <p> Sports play a significant role in my life, with volleyball and soccer being my favorites. 
+                    I also find running my go-to for getting in shape and clearing my mind.
+                    Beyond technology and sports, I seek adventure either by exploring different continents and cultures, 
+                    through dance and photography while also having an interest in modeling and acting.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="imagesTextBox">
+    <h2 id="imagesHeader">Some of the moments ive captured over the years</h2>
+    </div>  
+    <div class="imgContainer">
+        <div class="firstRow">
+            <img src="/rowImages/WIB1.jpg" alt=" Cape Town South Africa">
+            <img src="/rowImages/WIB2.jpg" alt="Temple in Egypt">
+            <img src="/rowImages/WIB3.jpg" alt="Mount Fuji in Japan">
+            <img src="/rowImages/WIB4.jpg" alt="The Great Pyramids in Egypt">
+            <img src="/rowImages/WIB5.jpg" alt="Temple in Istanbul">
+        </div>
+            <div class="secondRow">
+                <img src="/rowImages/WIB6.jpg" alt="Jaguar on back in South Africa">
+                <img src="/rowImages/WIB7.jpg" alt="View of city from Hotel in Singapore">
+                <img src="/rowImages/WIB8.jpg" alt="The Great Pyramids in Egypt">
+            </div>
+    </div>
+<form>
+    <div class="inputFieldHeader">
+        <h3> What is your name?</h3>
+        <input type="text" id="input-field" name="input-field" required>
+    </div>
+    
+    <fieldset>
+        <legend> Are you into Sports? </legend>
+        <div>
+            <input type="radio" id="yes" name="yes">
+            <label for="yes">Yes</label>
+        </div>
+        <div>
+            <input type="radio" id="no" name="no">
+            <label for="no">No</label>
+        </div>
+    </fieldset>
+        
+    <fieldset>
+        <legend class="checkBoxHeader">Which Sports do you like to play? (Check all that apply) </legend>
+        <div id="football">
+            <label for="football">Football</label>
+            <input type="checkbox" id="football" name="football">
+        </div>
+        <div>
+            <label for="basketball">Basketball</label>
+            <input type="checkbox" id="basketball" name="basketball">
+        </div>
+        <div>
+            <label for="volleyball">VolleyBall</label>
+            <input type="checkbox" id="volleyball" name="volleyball">
+        <div>
+        <div>
+            <label for="golf">Golf</label>
+            <input type="checkbox" id="golf" name="golf">
+        </div>
+        </fieldset>
+        <button type="button" id="btn-el">Submit</button>
+        <p id="p1" </p>
+    </form>
+</body>
+</html>
