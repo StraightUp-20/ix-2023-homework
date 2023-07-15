@@ -1,15 +1,17 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="landingPage.css">
     <script src="landingPage.js"></script>
 </head>
-
+<!-- I also can not get my profile picture to be responsive. It moves when switching screens
+LOCATED:  -->
 <body>
     <div class="container-fluid p-3 mb-2 bg-dark text-white">
-        <h1 class="text-info">Leonardo Faife</h1>
+        <h1 class="text-info border-bottom rounded-3 px-3" style="width: 22%">Leonardo Faife</h1>
         <div class="row">
             <div class="col-8">
                 <div class="text-center p-4" style="font-family: Arial, Helvetica, sans-serif;">
@@ -54,6 +56,11 @@
             </div>
         </div>
     </div>
+    <!-- !HELP! FOR LINES: 62-74 -->
+    <!-- Am trying to center input-field and submit button to center of screen. I have tried many things, but none seem 
+    successful. I've tried (align-items-center and d-flex justify-content-center on the row and container)
+    Also messed with the width to get smaller field and even the margin and padding. I know im missing something, but I don't
+    know what -->
     <div class="container  ">
     <h3 class="text-center"> What is your name?</h3>
         <div class="row mx-5 rounded-3" style="width: 20%">
@@ -68,17 +75,8 @@
         </div>
     </div>
     <!-- <p id="p1" </p> -->
-
 </body>
-
 </html>
 
 
-
-
-
-
-
-
-
-
+    
