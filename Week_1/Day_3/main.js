@@ -68,6 +68,7 @@ console.log(min([23, 3, -23]))
 // #5 Write a function that capitilizes each word in a string
 
 function capitilizes(string) {
+    let arr=[];
 
 }
 
