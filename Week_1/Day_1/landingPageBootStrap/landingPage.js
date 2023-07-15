@@ -1,17 +1,3 @@
-const btn = document.getElementById("btn-el")
-const inputFieldEl = document.getElementById("input-field")
-const p1Field = document.getElementById("p1")
-
-btn.addEventListener("click", function() {
-    let input = inputFieldEl.value
-    p1Field.innerHTML =  `Hello, ${input}, your response has been recorded`
-})
-console.log(btn)
-
-
-
-
-
 
 
 

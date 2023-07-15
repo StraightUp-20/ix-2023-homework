@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="landingPage.css">
     <script src="landingPage.js"></script>
 </head>
 <!-- I also can not get my profile picture to be responsive. It moves when switching screens
 LOCATED:  -->
+
 <body>
     <div class="container-fluid p-3 mb-2 bg-dark text-white">
         <h1 class="text-info border-bottom rounded-3 px-3" style="width: 22%">Leonardo Faife</h1>
@@ -37,46 +40,53 @@ LOCATED:  -->
             </div>
         </div>
     </div>
-    <div class="container p-3 mb-2 bg-warning text-white text-center border border-primary ">
-        <h2 class="bs-warning"> Some of the moments ive captured over the years</h2>
-        <div class="row">
-            <div class="col">
-                <img src="/rowImages/WIB1.jpg" alt=" Cape Town South Africa">
-                <img src="/rowImages/WIB2.jpg" alt="Temple in Egypt">
-                <img src="/rowImages/WIB3.jpg" alt="Mount Fuji in Japan">
-                <img src="/rowImages/WIB4.jpg" alt="The Great Pyramids in Egypt">
-                <img src="/rowImages/WIB5.jpg" alt="Temple in Istanbul">
+    <div class="container p-3 mb-2 bg-warning text-white  border border-primary ">
+            <div class="row">
+              <div class="col-sm">
+                <h2 class="bs-warning"> What is your name? </h2>
+                <input class="col-xs-3" id="ex2" type="text">
+              </div>
             </div>
+              <div class="col-sm">
+                <h3 class="text-blue pt-3">How many of the 7 continents have you traveled to? </h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Africa</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Asia</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Europe</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">South America</label>
+                  </div>
+              </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <img src="/rowImages/WIB6.jpg" alt="Jaguar on back in South Africa">
-                <img src="/rowImages/WIB7.jpg" alt="View of city from Hotel in Singapore">
-                <img src="/rowImages/WIB8.jpg" alt="The Great Pyramids in Egypt">
+        <div class="container p-3 mb-2 bg-dark text-white ">
+            <div class="row">
+              <div class="col-sm">
+                <h2 class="bs-warning"> Links to Social Media</h2>
+                <a class="btn btn-success" href="www.instagram.com/lfaife_/" target="_blank">Instagram</a>
+                <a class="btn btn-success" href="www.linkedin.com/in/leonardo-faife-0a0b71220/" target="_blank">Linkedln</a>
+              </div>
+
             </div>
-        </div>
     </div>
-    <!-- !HELP! FOR LINES: 62-74 -->
-    <!-- Am trying to center input-field and submit button to center of screen. I have tried many things, but none seem 
+</div>
+
+
+        <!-- !HELP! FOR LINES: 62-74 -->
+        <!-- Am trying to center input-field and submit button to center of screen. I have tried many things, but none seem 
     successful. I've tried (align-items-center and d-flex justify-content-center on the row and container)
     Also messed with the width to get smaller field and even the margin and padding. I know im missing something, but I don't
     know what -->
-    <div class="container  ">
-    <h3 class="text-center"> What is your name?</h3>
-        <div class="row mx-5 rounded-3" style="width: 20%">
-            <div class="col row g-0 ">
-                <div class="d-flex justify-content-center">
-                    <input type="text" id="input-field" name="input-field" required>
-                <div class="col row g-0 ">
-                    <input class="btn btn-primary" type="submit" value="Submit">
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <p id="p1" </p> -->
+
+        <!-- <p id="p1" </p> -->
 </body>
+
 </html>
-
-
-    
