@@ -1,4 +1,11 @@
 let displayMessage = document.getElementById("message");
+let dom = document;
+
+
+const submitButton = document.getElementById("submit");
+const hintButton = document.getElementById("hint");
+
+
 
 const movies = [
     {title: 'Harry Potter', explanation: 'This movie is about a dude with a stick...', hint: 'It\'s Magic'},
@@ -30,6 +37,30 @@ function random()
 }
 random();
 
+submitButton.addEventListener("click", function() {
+
+})
+
+function submit() {
+
+    if(!isValid()){
+      alert('Please enter a guess');
+      return;
+    } 
+  }
+
+hintButton.addEventListener("click", function() {
+    let hint = dom.getElementById('hint');
+    hint.innerHTML = movies[currentMovie].hint;
+    console.log("showing hint");
+    let hintButton = dom.getElementById("hint-btn");
+    hintButton.disabled=true;
+})
+
+
+
+// let description = dom.getElementById('description');
+// description.innerHTML = movies[currentMovie].explanation;
 
    
    
