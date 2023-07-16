@@ -65,11 +65,19 @@ function min(arr) {
 
 console.log(min([23, 3, -23]))
 
-// #5 Write a function that capitilizes each word in a string
+// #14 Write a function that capitilizes each word in a string
 
-function capitilizes(string) {
-    let arr=[];
-
-}
-
-
+function capitalize(str) {
+    let words = str.split(" ");
+  
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1)
+    }
+  
+    let newString = words.join(" ");
+    for (let i = 0; i < words.length; i++) 
+    return newString;
+  }
+  
+  console.log(capitalize("hello cod")) // Output: "Hello Colorado"
+  

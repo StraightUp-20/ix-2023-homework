@@ -1,1 +1,1 @@
-arr1.length 
+    let newString = words.join(" ");
