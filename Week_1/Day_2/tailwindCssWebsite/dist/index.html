@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Tailwind Website </title>
     <link rel="stylesheet" href="output.css">
-</head> 
-<body>
-    <h1 class="bg-green-300"> Hello Miguel</h1>
-    
+</head>
+<body class= "grid place-content-center radial-blue ">
+    <div class="container min-h-screen mx-auto bg-amber-200/75 text-center ">
+        <p class="text-sky-800 text-6xl">
+            Hello my name is Leonardo Faife
+        </p>
+        <img src="profilePic.jpg" class="h-auto max-w-full rounded-lg pt-12" alt="picture of me">
+        <div class="px-10 ">
+            <p class="text-lime-700 pt-12  text-2xl ">
+                I'm Leonardo Faife, a Computer Science major at the University of Central Florida, currently residing in
+                Orlando. My passions revolve
+                around technology, sports, outdoor adventures, and creative expressions. In the realm of technology, I'm
+                eager to learn and grow in web development, pushing the boundaries of creativity by building dynamic
+                websites.
+            </p>
+            <p class="text-sky-400 px-10 pt-12 pb-5 text-2xl">
+                Sports play a significant role in my life, with volleyball and soccer being my favorites.
+                I also find running my go-to for getting in shape and clearing my mind.
+                Beyond technology and sports, I seek adventure either by exploring different continents and cultures,
+                through dance and photography while also having an interest in modeling and acting.
+            </p>
+        <div class="grid grid-flow-col grid-rows-2 grid-cols-3 gap-8">
+            <div class="transform scale-110 -rotate-6">
+                <img src="rowImages/WIB9.jpg" alt="Me holding Tower Giza">
+            </div>
+            <div class="col-start-3 transform scale-75 rotate-6 translate-x-2 translate-y-15">
+                <img src="rowimages/WIB11.jpg" alt="A Dubai Market">
+            </div>
+            <div class="transform scale-150 translate-y-11">
+                <img src="rowimages/WIB6.jpg" alt="Picture of jaguar in Botswana, South Africa">
+            </div>
+            <div class="transform translate-y-24">
+                <img src="rowimages/WIB.jpg10" alt="New York Monument">
+            </div>
+            <div class="row-start-1 col-start-2 col-span-2 transform translate-x-20 translate-y-4">
+                <img src="rowImages/WIB7.jpg" alt="View of Singapore">
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
+
