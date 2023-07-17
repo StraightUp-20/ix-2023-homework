@@ -1,1 +1,0 @@
-    let newString = words.join(" ");
