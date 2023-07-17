@@ -1,5 +1,5 @@
 let displayMessage = document.getElementById("message");
-let dom = document;
+
 
 
 const submitButton = document.getElementById("submit");
@@ -50,11 +50,11 @@ function submit() {
   }
 
 hintButton.addEventListener("click", function() {
-    let hint = dom.getElementById('hint');
-    hint.innerHTML = movies[currentMovie].hint;
-    console.log("showing hint");
-    let hintButton = dom.getElementById("hint-btn");
-    hintButton.disabled=true;
+    // let hint = dom.getElementById('hint');
+    // hint.innerHTML = movies[currentMovie].hint;
+    // console.log("showing hint");
+    // let hintButton = dom.getElementById("hint-btn");
+    // hintButton.disabled=true;
 })
 
 
