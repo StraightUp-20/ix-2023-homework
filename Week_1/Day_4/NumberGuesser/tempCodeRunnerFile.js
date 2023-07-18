@@ -1,2 +1,3 @@
-let dom;
-dom = document;
+function buttonClicked() {
+    console.log("Button clicked")
+}

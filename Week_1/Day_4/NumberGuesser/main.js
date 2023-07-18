@@ -1,6 +1,6 @@
-function buttonClicked() {
-    console.log("Button clicked")
-}
+// function buttonClicked() {
+//     console.log("Button clicked")
+// }
 
 // Parts of the dom 
 
@@ -15,4 +15,5 @@ function buttonClicked() {
 
 // Fetch the table
 
-let table = document.getElementById("table")
+// let table = document.getElementById("table")
+
