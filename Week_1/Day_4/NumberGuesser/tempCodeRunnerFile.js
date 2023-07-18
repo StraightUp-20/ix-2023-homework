@@ -1,0 +1,2 @@
+let dom;
+dom = document;
