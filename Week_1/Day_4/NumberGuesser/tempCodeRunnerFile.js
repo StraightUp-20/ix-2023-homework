@@ -1,3 +1,3 @@
-function buttonClicked() {
-    console.log("Button clicked")
-}
+let submitbuttom = document.getElementById("submit-button");
+
+// function onButtonClicked() {}
