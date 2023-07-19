@@ -20,6 +20,7 @@ class UI {
   formIsClicked(e) {
     e.preventDefault();
 
+
     // validation check to see the input has a value
     if (this.taskInput.value == '') {
       alert('Please enter a value');
@@ -32,7 +33,8 @@ class UI {
 
     this.renderTaskTable();
 
-    // this.tasks.value = '';
+    this.tasks.value = '';
+
   }
 
   renderTaskTable() {
@@ -40,9 +42,6 @@ class UI {
     for (let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
 
-      // create the table row element
-
-      // check day 5 library book for the rest
       const tr = this.createTaskTableRow(task);
       this.tableBody.appendChild(tr);
     }
@@ -55,7 +54,46 @@ class UI {
     const tdComplete = document.createElement('td');
     const tdActions = document.createElement('td');
 
+    tdTask.innerHTML = task.taskName;
+    tdComplete.innerHTML = task.complete;
+    tdActions.innerHTML = task.id;
+
+    const actionButtons = this.createActionButtons();
+    tdActions.appendChild(actionButtons[0])
+    tdActions.appendChild(actionButtons[1])
+
+    tr.appendChild(tdTask);
+    tr.appendChild(tdComplete);
+    tr.appendChild(tdActions);
+
     return tr;
+
   }
+  createActionButtons(task) {
+      const deleteButton = document.createElement('button');
+      const editButton = document.createElement('button');
+
+      deleteButton.setAttribute("class", "btn btn-danger btn-sm me-1");
+      deleteButton.innerHTML = "Delete";
+      deleteButton.addEventListener("click", () => {
+        // Call deletefunction()
+      })
+
+      editButton.setAttribute("class", "btn btn-warning btn-sm ms-1");
+      editButton.innerHTML = "Edit"
+      editButton.addEventListener("click", () => {
+        // Call editfunction()
+  })
+
+  return [deleteButton, editButton]
+}
+
+  // deleteFunction() {
+
+  // }
+
+  // editFunction() {
+
+  // }
 }
 const ui = new UI();
