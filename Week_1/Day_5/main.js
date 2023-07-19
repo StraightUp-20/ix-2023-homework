@@ -1,70 +1,61 @@
 class Task {
-    constructor(taskName) {
-        this.taskName = taskName
-    } 
-
+  constructor(id, taskName, complete) {
+    this.id = id;
+    this.taskName = taskName;
+    this.complete = complete;
+  }
 }
-
 
 class UI {
-    constructor() {
-        this.tableBody = document.getElementById('table-body');
-        this.form = document.getElementById('form')
+  constructor() {
+    this.tableBody = document.getElementById('table-body');
+    this.form = document.getElementById('form');
+    this.taskInput = document.getElementById('input-task');
 
-        this.form.addEventListener('submit', (e) => this.formIsClicked(e));
+    this.form.addEventListener('submit', (e) => this.formIsClicked(e));
 
-        this.tasks = []
+    this.tasks = [];
+  }
+
+  formIsClicked(e) {
+    e.preventDefault();
+
+    // validation check to see the input has a value
+    if (this.taskInput.value == '') {
+      alert('Please enter a value');
+      return;
     }
 
-    formIsClicked(e) {
-        e.preventDefault();
-        
-        if (this.taskName.value == " ") {
-            return; 
-        }
+    const id = new Date().getTime();
+    const task = new Task(id, this.taskInput.value, false);
+    this.tasks.push(task);
 
-    const task = new Task(this.taskName.value)
-    this.tasks.push(task)
-    // console.log(task)
-    
-    this.tasks.value = ""
+    this.renderTaskTable();
 
+    // this.tasks.value = '';
+  }
+
+  renderTaskTable() {
+    this.tableBody.innerHTML = [];
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+
+      // create the table row element
+
+      // check day 5 library book for the rest
+      const tr = this.createTaskTableRow(task);
+      this.tableBody.appendChild(tr);
     }
-    // renderTaskTable() {
-    //     this.tableBody.innerHTML = []
-    //     for (let i = 0; i < tasks.length; i++) {
-    //         const tasks = tasks[i]
+  }
 
-    //     const tr = document.createTaskTableRow();
-    //     this.tableBody.appendChild(tr);
-            
-    //     }
-    // }
+  createTaskTableRow(task) {
+    const tr = document.createElement('tr');
+
+    const tdTask = document.createElement('td');
+    const tdComplete = document.createElement('td');
+    const tdActions = document.createElement('td');
+
+    return tr;
+  }
 }
-    const ui = new UI();
-
-//     renderCustomers() {
-//     this.tableBody.innerHTML = [];
-
-//     for (let i = 0; i < listArray.length; i++) {
-//     const tr = document.createElement('tr');
-
-//     let task = document.createElement("td");
-
-//     task.innerHTML = listArray[i].task;
-
-//     tr.appendChild(task);
-
-//     this.tableBody.appendChild(tr);
-
-//         }
-//     }
-// }
-
-// let listArray = [];
-// listArray.push(List);
-
-// const ui = new UI();
-// ui.renderCustomers();
-
-   
+const ui = new UI();
