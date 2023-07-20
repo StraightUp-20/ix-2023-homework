@@ -101,7 +101,7 @@ class Task {
   }
 
     editTaskClicked() {
-    console.log("Unable to at this time")
+    alert("Unable to edit. All other functionalities are up and running")
 
     this.saveTasksToLocalStorage();
     this.renderTaskTable();
