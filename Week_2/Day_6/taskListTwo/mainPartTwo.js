@@ -4,6 +4,10 @@ class Task {
       this.taskName = taskName;
       this.complete = complete;
     }
+
+    static fromJSON(json) {
+        return new Task(json.id, json.taskName, json.complete);
+    }
   }
   
   class UI {
@@ -15,6 +19,8 @@ class Task {
       this.form.addEventListener('submit', (e) => this.formIsClicked(e));
   
       this.tasks = [];
+      this.loadTasksFromLocalStorage();
+      this.renderTaskTable();
     }
   
     formIsClicked(e) {
@@ -87,29 +93,29 @@ class Task {
         editButton.innerHTML = "Edit"
         editButton.addEventListener("click", () => {
 
-          this.editTaskClicked();
+          this.editTaskClicked(task);
     })
   
     return [deleteButton, editButton]
   }
       
     deleteTaskClicked(task) {
-      
-    this.filterTaskArray(task);
+    this.filterTaskArray(task)
     this.saveTasksToLocalStorage();
     this.renderTaskTable();
   }
 
-    editTaskClicked() {
+    editTaskClicked(task) {
     alert("Unable to edit. All other functionalities are up and running")
-
+    // this.filterTaskArray(task)
+   
     this.saveTasksToLocalStorage();
     this.renderTaskTable();
   }
 
   filterTaskArray(task) {
-    this.tasks = this.tasks.filter((currentTask) => {
-      return task.id != currentTask.id;
+    this.tasks = this.tasks.filter((x) => {
+      return task.id != x.id;
     });
   }
 
@@ -123,9 +129,12 @@ class Task {
     const json = localStorage.getItem('tasks');
     if (json) {
       const taskArr = JSON.parse(json);
-      this.tasks = taskArr.map((task) => Task.fromJSON(task));
+
+      this.tasks = taskArr.map((x) => Task.fromJSON(x));
+      }
+     
     }
-  }
+
 }
 
   const ui = new UI();
