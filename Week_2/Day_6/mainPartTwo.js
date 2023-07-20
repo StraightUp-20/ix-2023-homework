@@ -58,13 +58,15 @@ class Task {
       tdComplete.innerHTML = task.complete;
       tdActions.innerHTML = task.id;
   
-      const actionButtons = this.createActionButtons();
+      const actionButtons = this.createActionButtons(task);
       tdActions.appendChild(actionButtons[0])
       tdActions.appendChild(actionButtons[1])
   
       tr.appendChild(tdTask);
       tr.appendChild(tdComplete);
       tr.appendChild(tdActions);
+
+    
   
       return tr;
   
@@ -85,7 +87,7 @@ class Task {
         editButton.innerHTML = "Edit"
         editButton.addEventListener("click", () => {
 
-          this.editTaskClicked(task);
+          this.editTaskClicked();
     })
   
     return [deleteButton, editButton]
@@ -98,13 +100,8 @@ class Task {
     this.renderTaskTable();
   }
 
-    editTaskClicked(task) {
-
-    this.filterTaskArray(task);
-
-    tdTask.innerHTML = task.taskName;
-    tdComplete.innerHTML = task.complete;
-    tdActions.innerHTML = task.id;
+    editTaskClicked() {
+    console.log("Unable to at this time")
 
     this.saveTasksToLocalStorage();
     this.renderTaskTable();
