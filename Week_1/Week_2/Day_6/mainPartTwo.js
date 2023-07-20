@@ -55,8 +55,8 @@ class Task {
       const tdActions = document.createElement('td');
   
       tdTask.innerHTML = task.taskName;
-      // tdComplete.innerHTML = `<input type="radio" name="taskComplete_${task.id}" ${task.complete ? 'checked' : ''} enabled/>`;
-      // tdActions.innerHTML =  `<i class="fas fa-trash me-2" style="cursor: pointer;"></i><i class="fas fa-edit" style="cursor: pointer;"></i>`;
+      tdComplete.innerHTML = task.complete;
+      tdActions.innerHTML = task.id;
   
       const actionButtons = this.createActionButtons();
       tdActions.appendChild(actionButtons[0])
