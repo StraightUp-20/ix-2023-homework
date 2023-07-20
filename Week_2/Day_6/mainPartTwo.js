@@ -69,6 +69,7 @@ class Task {
       return tr;
   
     }
+
     createActionButtons(task) {
         const deleteButton = document.createElement('button');
         const editButton = document.createElement('button');
@@ -77,27 +78,58 @@ class Task {
         deleteButton.innerHTML = "Delete";
         deleteButton.addEventListener("click", () => {
           
-        this.deleteFunction()
+        this.deleteTaskClicked(task)
         })
   
         editButton.setAttribute("class", "btn btn-warning btn-sm ms-1");
         editButton.innerHTML = "Edit"
         editButton.addEventListener("click", () => {
-          // Call editfunction()
+
+          this.editTaskClicked(task);
     })
   
     return [deleteButton, editButton]
   }
-  
-    deleteFunction() {
-      let td = task.target.parentNode;
-      let tr = td.parentNode;
-      tr.parentNode.removeChild(tr)
-    }
-  
-    // editFunction() {
-  
-    // }
+      
+    deleteTaskClicked(task) {
+      
+    this.filterTaskArray(task);
+    this.saveTasksToLocalStorage();
+    this.renderTaskTable();
   }
+
+    editTaskClicked(task) {
+
+    this.filterTaskArray(task);
+
+    tdTask.innerHTML = task.taskName;
+    tdComplete.innerHTML = task.complete;
+    tdActions.innerHTML = task.id;
+
+    this.saveTasksToLocalStorage();
+    this.renderTaskTable();
+  }
+
+  filterTaskArray(task) {
+    this.tasks = this.tasks.filter((currentTask) => {
+      return task.id != currentTask.id;
+    });
+  }
+
+  saveTasksToLocalStorage() {
+    const json = JSON.stringify(this.tasks);
+  
+    localStorage.setItem('tasks', json);
+  }
+
+  loadTasksFromLocalStorage() {
+    const json = localStorage.getItem('tasks');
+    if (json) {
+      const taskArr = JSON.parse(json);
+      this.tasks = taskArr.map((task) => Task.fromJSON(task));
+    }
+  }
+}
+
   const ui = new UI();
   
