@@ -76,7 +76,8 @@ class Task {
         deleteButton.setAttribute("class", "btn btn-danger btn-sm me-1");
         deleteButton.innerHTML = "Delete";
         deleteButton.addEventListener("click", () => {
-          // Call deletefunction()
+          
+        this.deleteFunction()
         })
   
         editButton.setAttribute("class", "btn btn-warning btn-sm ms-1");
@@ -88,9 +89,11 @@ class Task {
     return [deleteButton, editButton]
   }
   
-    // deleteFunction() {
-  
-    // }
+    deleteFunction() {
+      let td = task.target.parentNode;
+      let tr = td.parentNode;
+      tr.parentNode.removeChild(tr)
+    }
   
     // editFunction() {
   
