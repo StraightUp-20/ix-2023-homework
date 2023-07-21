@@ -1,0 +1,5 @@
+.card {
+    background: bisque;
+    border: 2px dotted grey;
+    border-radius: 8px;
+}

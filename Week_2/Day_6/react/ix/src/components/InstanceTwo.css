@@ -1,0 +1,6 @@
+.container {
+    border: 4px solid blue;
+    border-radius: 8px;
+    background: red;    
+    color: yellow;
+}
