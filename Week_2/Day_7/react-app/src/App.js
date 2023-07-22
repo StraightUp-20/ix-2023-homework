@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     loadTasksFromLocalStorage()
-  }, [])
+  },)
 
   function onTasksCreated(task) {
 
