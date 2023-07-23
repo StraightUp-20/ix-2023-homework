@@ -27,11 +27,10 @@ export default function TaskTable(props) {
                                 ></input>
                              </td>
                             <td>
-                            <button
-                                type="button"
-                                className="bi bi-trash" viewBox="0 0 16 16" fill="currentColor" width="16" height="16"
-                                onClick={() => props.onDeleteBtnClicked(task)}
-                            ></button>
+                             <div
+                             onClick={() => props.onDeleteBtnClicked(task)}>
+                                <i className='bi bi-trash'></i>
+                             </div>
                         </td>
                     </tr>
                  );
