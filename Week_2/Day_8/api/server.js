@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors');
 
-const app express()
+const app = express()
 const port = 3000;
 
 app.use(cors());
@@ -18,11 +18,12 @@ app.get('/posts', (req, res) => {
         title: "SWE"
 
     })
+  })
 
 
 
-app.listen (() => {
+app.listen (port, () => {
     console.log("Listening for port 3000")
 })
 
-}
+
