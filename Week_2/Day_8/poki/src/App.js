@@ -1,67 +1,97 @@
-import './App.css';
+import React, { useState } from "react";
+import InputField from "./components/InputField";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import {useState} from 'react';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
-    const url = 'https://pokeapi.co/api/v2/'
+  const url = "https://pokeapi.co/api/v2/";
 
-    const [posts, setPosts] = useState([])
+  const [pokemonData, setPokemonData] = useState(null);
 
-    async function fetchPosts() {
-     
-    const res = await fetch(url + '/posts', {
-        method: 'GET',
-        headers: {
-          "Content-Type": "application/json"
-        
-      }
-      })
-
-      const data = await res.json()
-      setPosts(data);
-      console.log(data)
-
+  async function fetchPokemonData(pokemonName) {
+    try {
+      const res = await fetch(url + "pokemon/" + pokemonName.toLowerCase());
+      const data = await res.json();
+      setPokemonData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
+  }
 
-      // async function fetchOurPost() {
-      //   const res = await fetch(url, 'posts', {
-      //     method: 'GET',
-      //     headers: {
-      //       "Content-Type": "application/json"
-          
-      //   }
-      //   })
-
-      // const data = await res.json()
-      // console.log(data)
-
-      // }
-
-      return (
-      <div className=" container text-center mt-5">
-        <div className='card bg-body-secondary pt-3 p-4 '>
-        <h1 className='text-center pb-5'>Poki DataBase </h1>
-        <div class="input-group mb-3 ">
-          <input type="text" className="form-control" placeholder='Name of Pokimon goes here'/>
-          <button className="btn btn-outline-primary" type="button" onClick={fetchPosts}>+</button>
-          </div>
+  return (
+    <div className="container text-center mt-5">
+      <div className="card bg-body-secondary pt-3 p-4">
+        <InputField fetchPokemonData={fetchPokemonData} />
+        {pokemonData && (
           <div>
-          <input type="text" className="form-control" placeholder='Pokimons Ability...'/>
-          <button className="btn btn-outline-primary" type="button" onClick={fetchPosts}>+</button>
+           <h3>
+              {"The Pokémon you entered is: "}
+              <strong>{pokemonData.name}</strong>
+            </h3>
+            <div className="text-start fs-5">
+              <p>Your Pokemons abilities are listed below: </p>
+              <ul>
+                {pokemonData.abilities.map((ability, idx) => (
+                  <li className="text-start" key={idx}>{ability.ability.name}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div>
-              {
-                posts.map((x) => {
-                  return <div>
-                    {x.name}
-                    {x.ability}
-                  </div>
-                })}
-             </div>
-        </div>
+        )}
       </div>
-      )
-    }
+    </div>
+  );
+}
 
-export default App; 
+export default App;
+
+
+
+// import {React, useState} from 'react';
+// import InputField from './components/InputField';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+// function App() {
+//   const url = "https://pokeapi.co/api/v2/"
+
+  
+//   const [pokemonNames, setPokemonNames] = useState([]);
+//   // const [pokemonAbility, setPokemonAbility] = useState([]);
+
+
+//     async function fetchPokemonNames(pokemonNames) {
+     
+//     const res = await fetch(url + 'pokemon', {
+//         method: 'GET',
+//         headers: {
+//           "Content-Type": "application/json"
+        
+//       }
+//       })
+
+//       const data = await res.json()
+//       setPokemonNames([data.name]);
+//       // setPokemonAbility(data.abilities.map(ability => ability.ability.name));
+//     }
+
+//       return (
+//       <div className=" container text-center mt-5">
+//         <div className='card bg-body-secondary pt-3 p-4 '>
+//             <InputField fetchPokemonNames={fetchPokemonNames}/>
+//         <div>
+//         {pokemonNames.map((pokemonName, index) => (
+//           <div key = {index}>
+//             {pokemonName}
+      
+//         </div>
+//         ))}
+//       </div>
+//     </div>
+//     </div>
+//   );
+// }
+
+// export default App; 
+
+
+
+ 
