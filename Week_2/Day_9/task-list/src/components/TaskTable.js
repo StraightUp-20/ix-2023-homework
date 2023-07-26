@@ -29,7 +29,7 @@ export default function TaskTable(props) {
                              </td>
                             <td>
                              <div
-                             onClick={() => props.onDeleteBtnClicked(task.id)}>
+                             onClick={() => props.onTaskRemove(task.id)}>
                                 <i className='bi bi-trash'></i>
                              </div>
                         </td>

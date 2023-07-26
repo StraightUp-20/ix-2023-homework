@@ -26,30 +26,27 @@ class TaskService {
 
     async createTask(task) {
         const collectionRef = collection(db, this.collection);
-
         const docRef = await addDoc(collectionRef, {
-            name: task.name ,
+            description: task.description ,
             complete: task.complete
         })
 
         task.id = docRef.id;
         return task;
     }
-    
-    async updateTasks(task) {
+
+    async updateTask(task) {
         const docRef = doc(db, this,collection, task.id)
 
         await updateDoc(docRef, {
-            name: task.description,
+            description: task.description,
             complete: task.complete
         })
 
         return task;
     }
 
-
-
-    async deleteTasks(taskId) {
+    async deleteTask(taskId) {
         const docRef = doc(db, this.collection, taskId)
         await deleteDoc(docRef);
     }

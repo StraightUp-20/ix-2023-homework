@@ -22,7 +22,7 @@ function App() {
     if (!tasks.length) {
       onInitalLoad()
   }
- }, []);
+ }, [tasks]);
 
  async function onInitalLoad() {
   try {
@@ -33,16 +33,16 @@ function App() {
   }
  }
 
-  async function onTasksCreated(description) {
+  async function onTasksCreate(description) {
       const task = await TaskService.createTask(new Task(null, description, false))
       // setTaskToEdit(null);
       setTasks([...tasks, task])
       // saveTasksToLocalStorage();
     }
 
-    async function onDeleteBtnClicked(taskId) {
+    async function onTaskRemove(taskId) {
       await TaskService.deleteTask(taskId);
-      setTasks(tasks.filter((x) => x.id !== taskId));
+      setTasks(tasks.filter((task) => task.id !== taskId));
     }
 
     async function onTaskCompleteToggle(taskId) {
@@ -62,8 +62,8 @@ function App() {
   return (
     <div className="text-center m-5">
       <div className='card p-4'>
-        <TaskForm onTasksCreated= {onTasksCreated}/>
-        <TaskTable tasks={tasks} onDeleteBtnClicked={onDeleteBtnClicked} 
+        <TaskForm onTasksCreate= {onTasksCreate}/>
+        <TaskTable tasks={tasks} onTaskRemove={onTaskRemove} 
         onTaskCompleteToggle={onTaskCompleteToggle}/>
         </div>
       </div>

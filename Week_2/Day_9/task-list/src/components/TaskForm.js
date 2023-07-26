@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Task} from '../models/Task'
+
 
 export default function TaskForm(props) {
     const [description, setDescription] = useState('')
@@ -11,8 +11,7 @@ export default function TaskForm(props) {
             return;
         }
 
-        let task = new Task(description);
-        props.onTasksCreated(task)
+        props.onTasksCreate(description)
         clearInputs();
 
      }
