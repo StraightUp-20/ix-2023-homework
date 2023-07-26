@@ -9,6 +9,7 @@ import TaskTable from './components/TaskTable';
 
 function App() {
   const [tasks, setTasks] = useState([])
+  // const [taskToEdit, setTaskToEdit] = useState(null);
 
     // not applied. // Local storage is not applied yet
   useEffect(() => {
@@ -58,3 +59,62 @@ function App() {
 
 
 export default App;
+
+
+// useEffect(() => {
+//   if (!tasks.length) {
+//   loadTasksFromLocalStorage();
+// };
+
+// useEffect(() => {
+//   // saveTasksToLocalStorage();
+// }, [tasks]);
+
+// // In the case of an empty arraym the function only
+// // fires the first time the component initializes
+// // If we put a variable in the [], anytime the variables changes
+// // the function fires
+
+// async function onTasksCreated(description) {
+//     const task = await TaskService.createTask(new Task(null, description, false))
+//     // setTaskToEdit(null);
+//     setTasks([...tasks, task])
+//     // saveTasksToLocalStorage();
+//   }
+
+//   function onDeleteBtnClicked(task) {
+//     setTasks(tasks.filter((x) => x.id !== task.id));
+//   }
+//   // Not applied
+//   // function saveTasksToLocalStorage() {
+//   //   const json = JSON.stringify(tasks);
+//   //   localStorage.setItem('tasks', json)
+//   // }
+//   // // Not applied
+//   // function loadTasksFromLocalStorage() {
+//   //   const json = localStorage.getItem('tasks');
+//   //   if(json) {
+//   //     const taskArr = JSON.parse(json)
+//   //     for (let i = 0; i < taskArr.length; i++ ) {
+//   //       setTasks([...tasks, Task.fromJSON(taskArr[i])])
+//   //     }
+//   //   }
+//   // }
+
+//   function onTaskCompleteToggle(taskId) {
+//     const taskToToggle = tasks.find((task) => task.id === taskId);
+//     taskToToggle.complete = !taskToToggle.complete;
+//   }
+// return (
+//   <div className="text-center m-5">
+//     <div className='card p-4'>
+//       <TaskForm onTasksCreated= {onTasksCreated} taskToEdit={taskToEdit}/>
+//       <TaskTable tasks={tasks} onDeleteBtnClicked={onDeleteBtnClicked} 
+//       onTaskCompleteToggle={onTaskCompleteToggle}/>
+//       </div>
+//     </div>
+// );
+// }
+
+
+// export default App;
