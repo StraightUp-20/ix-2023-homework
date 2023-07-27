@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 export default function TaskForm(props) {
-    const [description, setDescription] = useState('')
+    const [description, setDescription] = useState('');
 
     function onTaskFormSubmit(e) {
         e.preventDefault();

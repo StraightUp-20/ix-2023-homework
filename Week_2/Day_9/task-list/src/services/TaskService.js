@@ -36,7 +36,7 @@ class TaskService {
     }
 
     async updateTask(task) {
-        const docRef = doc(db, this,collection, task.id)
+        const docRef = doc(db, this.collection, task.id)
 
         await updateDoc(docRef, {
             description: task.description,
