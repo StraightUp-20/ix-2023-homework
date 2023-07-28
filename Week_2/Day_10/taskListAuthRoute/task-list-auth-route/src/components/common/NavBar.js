@@ -9,7 +9,7 @@ export default function NavBar(props) {
     await signOut(auth);
   }
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary mx-1">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           Task List
