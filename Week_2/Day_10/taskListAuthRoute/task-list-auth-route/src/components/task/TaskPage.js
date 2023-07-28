@@ -55,9 +55,9 @@ export default function TaskPage() {
      )
     }
 
-  return (
-  <div className="container m-5">
-  <div className='text-center card p-4'>
+    return (
+  <div className="container mt-5">
+  <div className='card card-body text-center p-4'>
     <TaskForm onTasksCreate= {onTasksCreate}/>
     <TaskTable tasks={tasks} onTaskRemove={onTaskRemove} 
     onTaskCompleteToggle={onTaskCompleteToggle}/>
