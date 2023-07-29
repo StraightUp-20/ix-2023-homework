@@ -1,13 +1,14 @@
 import React from "react";
 
-export default function TaskTable(props) {
+export default function BookTable(props) {
   return (
     <div>
       <table className="table mt-5">
         <thead>
           <tr>
-            <th scope="col">Task</th>
-            <th scope="col">Complete</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">ISBN</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>

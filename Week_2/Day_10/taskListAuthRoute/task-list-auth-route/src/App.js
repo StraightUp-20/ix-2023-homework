@@ -12,7 +12,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import TaskPage from "./components/task/TaskPage";
+import BookPage from "./components/books/BookPage";
 import LoginPage from "./components/auth/LoginPage";
 import RegisterPage from "./components/auth/RegisterPage";
 
@@ -30,7 +30,7 @@ function App() {
     <BrowserRouter>
       <NavBar user={user} />
       <Routes>
-        <Route path="/" element={<TaskPage />}></Route>
+        <Route path="/" element={<BookPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/register" element={<RegisterPage />}></Route>
       </Routes>
