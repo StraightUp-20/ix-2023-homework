@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Model imports
-import { Book } from "../../models/Book";
+// import { Book } from "../../models/Book";
 
 // Component imports
 import BookForm from "./BookForm";
@@ -22,7 +22,7 @@ export default function BookPage() {
 
   async function onInitalLoad() {
     try {
-      const books = await TaskService.fetchTasks();
+      const books = await BookService.fetchTasks();
       setBooks(books);
     } catch (err) {
       console.log(err);
@@ -30,12 +30,13 @@ export default function BookPage() {
   }
 
   async function onBookCreate(book) {
+    const book = await BookService.createTask(new Book(null, title, false));
     setBookToEdit(null);
     setBooks([...books, book]);
   }
 
   async function onBookRemove(bookId) {
-    // await BookService.deleteBook(bookId);
+    await BookService.deleteBook(bookId);
     setBooks(books.filter((x) => x.isbn !== bookId.isbn));
   }
 

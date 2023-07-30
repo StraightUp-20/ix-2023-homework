@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import BookService from "../../services/BookService";
+import { Book } from "../../models/Book";
 
 export default function BookForm(props) {
   const [title, setTitle] = useState("");
@@ -28,7 +30,7 @@ export default function BookForm(props) {
   }
 
   function isValid() {
-    return title !== "" && (author !== "") & (isbn !== "");
+    return title !== "" && author !== "" && isbn !== "";
   }
 
   function clearInputs() {
@@ -76,7 +78,7 @@ export default function BookForm(props) {
           </div>
           <div>
             <button
-              type="button"
+              type="submit"
               className="btn btn-outline-success mt-4 form-control"
             >
               Submit
