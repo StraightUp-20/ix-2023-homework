@@ -13,23 +13,27 @@ export default function BookTable(props) {
           </tr>
         </thead>
         <tbody id="table-body">
-          {props.tasks.map((task) => {
+          {props.books.map((book) => {
             return (
-              <tr key={task.id}>
-                <td>{task.description}</td>
+              <tr key={book.id}>
+                <td>{book.title}</td>
+                <td>{book.author}</td>
+                <td>{book.isbn}</td>
                 <td>
-                  <div onClick={() => props.onTaskCompleteToggle(task.id)}>
-                    <i
-                      className={
-                        task.complete ? "bi bi-circle-fill" : "bi bi-circle"
-                      }
-                    ></i>
-                  </div>
-                </td>
-                <td>
-                  <div onClick={() => props.onTaskRemove(task.id)}>
-                    <i className="bi bi-trash"></i>
-                  </div>
+                  <button
+                    type="button"
+                    className="btn btn-danger me-1"
+                    onClick={() => props.onBookRemove(book)}
+                  >
+                    Delete
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-warning ms-1"
+                    onClick={() => props.onBookEdit(book)}
+                  >
+                    Edit
+                  </button>
                 </td>
               </tr>
             );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Model imports
-// import { Book } from "../../models/Book";
+import { Book } from "../../models/Book";
 
 // Component imports
 import BookForm from "./BookForm";
@@ -22,36 +22,26 @@ export default function BookPage() {
 
   async function onInitalLoad() {
     try {
-      const books = await BookService.fetchTasks();
+      const books = await BookService.fetchBooks();
       setBooks(books);
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function onBookCreate(book) {
-    const book = await BookService.createTask(new Book(null, title, false));
+  async function onBooksCreate(bookData) {
+    const book = await BookService.createBook(
+      new Book(null, bookData.title, false)
+    );
     setBookToEdit(null);
     setBooks([...books, book]);
   }
 
-  async function onBookRemove(bookId) {
-    await BookService.deleteBook(bookId);
-    setBooks(books.filter((x) => x.isbn !== bookId.isbn));
+  async function onBookRemove(book) {
+    await BookService.deleteBook(book);
+
+    setBooks(books.filter((x) => x.isbn !== book.isbn));
   }
-
-  // async function onTaskCompleteToggle(bookId) {
-  //   const taskToToggle = books.find((book) => book.id === bookId);
-  //   taskToToggle.complete = !taskToToggle.complete;
-
-  //   const updatedBook = await BookService.updateBook(taskToToggle);
-
-  //   setBooks(
-  //     books.map((book) => {
-  //       return book.id === bookId ? bookTask : book;
-  //     })
-  //   );
-  // }
 
   async function onBookEdit(book) {
     setBookToEdit(book);
@@ -62,9 +52,9 @@ export default function BookPage() {
   return (
     <div className="container mt-5">
       <div className="card card-body text-start p-4">
-        <BookForm onBookCreate={onBookCreate} bookToEdit={bookToEdit} />
+        <BookForm onBooksCreate={onBooksCreate} bookToEdit={bookToEdit} />
         <BookTable
-          tasks={books}
+          books={books}
           onBookRemove={onBookRemove}
           onBookEdit={onBookEdit}
         />

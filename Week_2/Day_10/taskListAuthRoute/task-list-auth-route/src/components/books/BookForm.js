@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import BookService from "../../services/BookService";
+
 import { Book } from "../../models/Book";
 
 export default function BookForm(props) {
@@ -18,19 +20,11 @@ export default function BookForm(props) {
   async function onBookFormSubmit(e) {
     e.preventDefault();
 
-    if (!isValid) {
-      return;
-    }
-
     const book = await BookService.createBook(
       new Book(title, author, isbn, null)
     );
     props.onBooksCreate(book);
     clearInputs();
-  }
-
-  function isValid() {
-    return title !== "" && author !== "" && isbn !== "";
   }
 
   function clearInputs() {
