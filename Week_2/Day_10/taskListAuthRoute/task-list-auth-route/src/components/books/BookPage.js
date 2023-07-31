@@ -12,12 +12,10 @@ import BookService from "../../services/BookService";
 
 export default function BookPage() {
   const [books, setBooks] = useState([]);
-  const [bookToEdit, setBookToEdit] = useState(null);
+  const [bookToEdit, setBookToEdit] = useState("");
 
   useEffect(() => {
-    if (!books.length) {
-      onInitalLoad();
-    }
+    onInitalLoad();
   }, []);
 
   async function onInitalLoad() {
@@ -29,16 +27,13 @@ export default function BookPage() {
     }
   }
 
-  async function onBooksCreate(bookData) {
-    const book = await BookService.createBook(
-      new Book(null, bookData.title, false)
-    );
+  async function onBooksCreated(book) {
     setBookToEdit(null);
     setBooks([...books, book]);
   }
 
   async function onBookRemove(book) {
-    await BookService.deleteBook(book);
+    await BookService.deleteBook(book.id);
 
     setBooks(books.filter((x) => x.isbn !== book.isbn));
   }
@@ -52,7 +47,7 @@ export default function BookPage() {
   return (
     <div className="container mt-5">
       <div className="card card-body text-start p-4">
-        <BookForm onBooksCreate={onBooksCreate} bookToEdit={bookToEdit} />
+        <BookForm onBooksCreated={onBooksCreated} bookToEdit={bookToEdit} />
         <BookTable
           books={books}
           onBookRemove={onBookRemove}

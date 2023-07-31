@@ -23,7 +23,7 @@ class BookService {
     const books = [];
     querySnapshot.forEach((doc) => {
       const data = doc.data();
-      const book = new Book(doc.title, data.author, data.isbn, data.id);
+      const book = new Book(doc.title, data.author, data.isbn, doc.id);
       books.push(book);
     });
 
@@ -32,6 +32,7 @@ class BookService {
 
   async createBook(book) {
     const collectionRef = collection(db, this.collection);
+
     const docRef = await addDoc(collectionRef, {
       title: book.title,
       author: book.author,

@@ -1,11 +1,13 @@
 import "./App.css";
 // import { useState, useEffect } from 'react';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import { useEffect, useState } from "react";
+
 import { onAuthStateChanged } from "firebase/auth";
+
 import { auth } from "./firebase/firebase";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Bootstrap imports
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -19,7 +21,7 @@ import RegisterPage from "./components/auth/RegisterPage";
 import NavBar from "./components/common/NavBar";
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {

@@ -11,9 +11,7 @@ export default function NavBar(props) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary mx-1">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
-          Task List
-        </a>
+        <a className="navbar-brand">Task List</a>
         <button
           className="navbar-toggler"
           type="button"

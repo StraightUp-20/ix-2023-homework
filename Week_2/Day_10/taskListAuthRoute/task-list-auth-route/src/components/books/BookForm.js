@@ -23,7 +23,7 @@ export default function BookForm(props) {
     const book = await BookService.createBook(
       new Book(title, author, isbn, null)
     );
-    props.onBooksCreate(book);
+    props.onBooksCreated(book);
     clearInputs();
   }
 
