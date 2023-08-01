@@ -16,22 +16,24 @@ export default function BookTable(props) {
           {props.books.map((book) => {
             return (
               <tr key={book.isbn}>
-                <td>{book.title}</td>
-                <td>{book.author}</td>
-                <td>{book.isbn}</td>
+                <td id="input-title">{book.title}</td>
+                <td id="input-author">{book.author}</td>
+                <td id="input-isbn">{book.isbn}</td>
                 <td>
-                  <button
-                    className="btn btn-danger me-1"
-                    onClick={() => props.onBookRemove(book)}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    className="btn btn-warning ms-1"
-                    onClick={() => props.onBookEdit(book)}
-                  >
-                    Edit
-                  </button>
+                  <div>
+                    <button
+                      className="btn btn-danger me-1"
+                      onClick={() => props.onBookRemove(book)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="btn btn-warning ms-1"
+                      oncClick={() => props.onBookEdit(book)}
+                    >
+                      Edit
+                    </button>
+                  </div>
                 </td>
               </tr>
             );

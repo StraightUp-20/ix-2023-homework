@@ -9,22 +9,30 @@ export default function BookForm(props) {
   const [author, setAuthor] = useState("");
   const [isbn, setIsbn] = useState("");
 
-  useEffect(() => {
-    if (props.bookToEdit) {
-      setTitle(props.bookToEdit.title);
-      setAuthor(props.bookToEdit.author);
-      setIsbn(props.bookToEdit.isbn);
-    }
-  }, [props.bookToEdit]);
+  // useEffect(() => {
+  //   if (props.bookToEdit) {
+  //     setTitle(props.bookToEdit.title);
+  //     setAuthor(props.bookToEdit.author);
+  //     setIsbn(props.bookToEdit.isbn);
+  //   }
+  // }, [props.bookToEdit]);
 
   async function onBookFormSubmit(e) {
     e.preventDefault();
+
+    if (!isValid()) {
+      return;
+    }
 
     const book = await BookService.createBook(
       new Book(title, author, isbn, null)
     );
     props.onBooksCreated(book);
     clearInputs();
+  }
+
+  function isValid() {
+    return title !== "" && author !== "" && isbn !== "";
   }
 
   function clearInputs() {
