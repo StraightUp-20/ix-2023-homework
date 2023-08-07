@@ -1,42 +1,42 @@
-const input = document.getElementById('input');
-const button = document.getElementById('button');
-const output = document.getElementById('output');
+// let inputField = document.getElementById("inputField");
+// let submitButtom = document.getElementById("submitButton");
 
-button.addEventListener('click', (e) => {
-  const randomNumber = Math.round(Math.random() * 10);
+// submitButtom.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   printRandomGuess();
+//   readInputField();
+// });
 
-  const elem = document.createElement('div');
-  elem.classList.add('alert');
-  output.innerHTML = '';
+// function printRandomGuess() {
+//   let randomNumber = Math.floor(Math.random() * 11);
+//   console.log(randomNumber);
+// }
 
-  if (input.value == randomNumber) {
-    this.show();
-    elem.classList.add('alert-success');
-    elem.innerHTML = 'Hooray! It was ' + randomNumber;
+// function readInputField() {
+//   inputField.value;
+// }
+
+let inputField = document.getElementById("inputField");
+let displayAnswerOnSubmit = document.getElementById("displayAnswerOnSubmit");
+
+inputField.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let userGuess = inputField.value;
+  let randomNumber = Math.floor(Math.random() * 11);
+
+  if (userGuess === "") {
+    displayAnswerOnSubmit.innerHTML = "Enter Valid guess";
+  } else if (userGuess < 0 || userGuess > 10) {
+    displayAnswerOnSubmit.innerHTML = "Please enter a number between 0 and 10";
+  } else if (userGuess === randomNumber) {
+    displayAnswerOnSubmit.innerHTML = `Good Job! ${userGuess} is the correct answer`;
   } else {
-    this.show();
-    elem.classList.add('alert-danger');
-    elem.innerHTML = 'Nope... it was ' + randomNumber;
+    displayAnswerOnSubmit.innerHTML = "So close, Try Again!";
   }
 
-  setTimeout(() => {
-    this.hide();
-  }, 2500);
-  input.value = '';
-
-  output.appendChild(elem);
+  clearInput(inputField);
 });
 
-function show() {
-  output.classList.remove('hide');
-  output.classList.add('show');
+function clearInput(inputField) {
+  inputField.value = "";
 }
-
-function hide() {
-  output.classList.remove('show');
-  output.classList.add('hide');
-}
-
-
-
-// let printAnswer = document.getElementById("answer");

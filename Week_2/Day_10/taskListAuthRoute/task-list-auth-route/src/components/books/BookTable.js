@@ -15,7 +15,7 @@ export default function BookTable(props) {
         <tbody id="table-body">
           {props.books.map((book) => {
             return (
-              <tr key={book.isbn}>
+              <tr key={book.id}>
                 <td id="input-title">{book.title}</td>
                 <td id="input-author">{book.author}</td>
                 <td id="input-isbn">{book.isbn}</td>
@@ -43,3 +43,5 @@ export default function BookTable(props) {
     </div>
   );
 }
+
+// console.log(props.onBookRemove(book))

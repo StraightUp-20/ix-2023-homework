@@ -28,19 +28,19 @@ export default function BookPage() {
   }
 
   async function onBooksCreated(book) {
-    setBookToEdit(null);
     setBooks([...books, book]);
+    setBookToEdit(null);
   }
 
   async function onBookRemove(book) {
     await BookService.deleteBook(book.id);
 
-    setBooks(books.filter((x) => x.isbn !== book.isbn));
+    setBooks(books.filter((x) => x.isbn !== book.id));
   }
 
   async function onBookEdit(book) {
     setBookToEdit(book);
-    setBooks(books.filter((x) => x.isbn !== book.isbn));
+    setBooks(books.filter((x) => x.isbn !== book.id));
     onBookRemove(book);
   }
 

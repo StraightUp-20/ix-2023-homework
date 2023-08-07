@@ -25,7 +25,7 @@ export default function BookForm(props) {
     }
 
     const book = await BookService.createBook(
-      new Book(title, author, isbn, null)
+      new Book(title, author, isbn, id, null)
     );
     props.onBooksCreated(book);
     clearInputs();

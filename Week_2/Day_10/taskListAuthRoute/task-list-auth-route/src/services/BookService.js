@@ -55,8 +55,8 @@ class BookService {
     return book;
   }
 
-  async deleteBook(bookId) {
-    const docRef = doc(db, this.collection, bookId.id);
+  async deleteBook(book) {
+    const docRef = doc(db, this.collection, book.id);
     await deleteDoc(docRef);
   }
 }
